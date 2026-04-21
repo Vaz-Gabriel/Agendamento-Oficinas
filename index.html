@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidas - Agendamento em Oficinas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+        <span id="theme-text">Modo Escuro</span>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Unidas - Agendamento em oficinas</h1>
+        </header>
+        
+        <main>
+            <div class="alert-box urgent">
+                <p><strong>⚠️ COMUNICADO IMPORTANTE 🛠️</strong></p>
+                <p>Só serão aceitos agendamentos com 1 dia de antecedência! 🚗💨</p>
+            </div>
+
+            <form id="schedulingForm">
+                <div class="form-group">
+                    <label for="unidade">Unidade (Selecione a usina):</label>
+                    <select id="unidade" required>
+                        <option value="" disabled selected>Selecione uma unidade</option>
+                        <option value="Mandu">Mandu</option>
+                        <option value="São José">São José</option>
+                        <option value="Vertente">Vertente</option>
+                        <option value="Cruz Alta">Cruz Alta</option>
+                        <option value="Tanabi">Tanabi</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="placa">Placa do Veículo:</label>
+                    <input type="text" id="placa" placeholder="Ex: ABC-1234" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="km">Quilômetro Atual:</label>
+                    <input type="number" id="km" placeholder="Digite o KM atual" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="problema">Problema:</label>
+                    <textarea id="problema" rows="4" placeholder="Descreva o problema do veículo" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="data">Data do Agendamento:</label>
+                    <input type="date" id="data" required>
+                </div>
+
+                <button type="submit" id="btnEnviar">Enviar para WhatsApp</button>
+            </form>
+
+            <div id="successMessage" class="success-message hidden">
+                <p>✅ Agendado com sucesso!</p>
+                <p>Redirecionando para o WhatsApp...</p>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
