@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Projeto HUB - Controle de Veículos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="header-content">
+            <h1>HUB</h1>
+            <div class="progress-circle-container">
+                <svg class="progress-circle" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" class="progress-bg"></circle>
+                    <circle cx="50" cy="50" r="45" class="progress-feito" id="progressFeito"></circle>
+                    <circle cx="50" cy="50" r="45" class="progress-nao-feito" id="progressNaoFeito"></circle>
+                    <text x="50" y="45" class="progress-text-percent" id="progressPercent">0%</text>
+                </svg>
+            </div>
+        </div>
+        <div class="date-filters">
+            <div>
+                <label><strong>INÍCIO:</strong></label>
+                <input type="date" id="dataInicio">
+            </div>
+            <div>
+                <label><strong>FIM:</strong></label>
+                <input type="date" id="dataFim">
+            </div>
+        </div>
+    </header>
+
+    <div class="status-cards">
+        <div class="card-status total-card">
+            <h3>Total de Veículos</h3>
+            <div class="value" id="totalVeiculos">0</div>
+        </div>
+        <div class="card-status feito-card">
+            <h3>Total Feito</h3>
+            <div class="value" id="totalFeito">0</div>
+        </div>
+        <div class="card-status nao-feito-card">
+            <h3>Total Não Feito</h3>
+            <div class="value" id="totalNaoFeito">0</div>
+        </div>
+    </div>
+
+    <div id="alertContainer"></div>
+
+    <div class="usinas-container" id="usinasContainer">
+        <!-- Caixas de usinas serão geradas aqui -->
+    </div>
+
+    <div class="controls-section" style="margin-top: var(--spacing-xl);">
+        <div class="controls">
+            <input type="text" id="placaInput" placeholder="Placa (ABC-1234)">
+            <select id="usinaInput">
+                <option value="">Usina</option>
+                <option value="Mandu">Mandu</option>
+                <option value="São José">São José</option>
+                <option value="Vertente">Vertente</option>
+                <option value="Cruz Alta">Cruz Alta</option>
+                <option value="Tanabi">Tanabi</option>
+            </select>
+            <button type="button" onclick="adicionarVeiculo()">Adicionar</button>
+        </div>
+        <div class="divider"></div>
+        <div class="controls">
+            <input type="file" id="excelFile" accept=".xlsx,.xls,.csv">
+            <button type="button" class="btn-import" onclick="importarExcel()">Importar</button>
+            <button type="button" class="btn-export" onclick="exportarExcel()">Exportar</button>
+            <button type="button" class="btn-clear" onclick="limparTodos()">Limpar</button>
+        </div>
+    </div>
+
+    <button class="theme-toggle" onclick="alternarTema()" title="Alternar tema">🌙</button>
+
+    <footer>
+        <p>&copy; <span id="anoAtual"></span> Gabriel Vaz. Todos os direitos reservados.</p>
+    </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
